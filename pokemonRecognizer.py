@@ -5,9 +5,6 @@ from PIL import Image
 import glob
 import os
 import time
-#import easyocr
-#import keras_ocr
-#import matplotlib as plt
 
 
 
