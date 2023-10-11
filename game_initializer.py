@@ -14,7 +14,6 @@ def run_game():
     window = emu.create_sdl_window()
 
     # Run the game at 60fps
-    start_time = time.monotonic()
     frame_num = 0
     while not window.has_quit():
         window.process_input()  # Controls are the default DeSmuME controls, see below.
@@ -23,11 +22,13 @@ def run_game():
 
         if frame_num % 2:
             emu.input.keypad_add_key(a_key)
+            emu.input.keypad_add_key(b_key)
         else:
             emu.input.keypad_rm_key(a_key)
+            emu.input.keypad_rm_key(b_key)
 
         frame_num += 1
-        time.sleep((1 / 60.0) - ((time.monotonic() - start_time) % (1 / 60)))
+        time.sleep(1/60)
 
 
 if __name__ == "__main__":
